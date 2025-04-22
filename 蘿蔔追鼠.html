@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>蘿蔔追你跑＋點我有聲</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to right, orange, yellow);
+            overflow: hidden;
+            cursor: none;
+        }
+
+        #carrot {
+            position: absolute;
+            font-size: 50px;
+            pointer-events: none;
+            transition: transform 0.05s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="carrot">🥕</div>
+    <audio id="ouchSound" src="https://www.myinstants.com/media/sounds/vine-boom.mp3"></audio>
+
+    <script>
+        const carrot = document.getElementById("carrot");
+        const sound = document.getElementById("ouchSound");
+
+        document.addEventListener("mousemove", function(event) {
+            carrot.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        });
+
+        document.addEventListener("click", function() {
+            sound.currentTime = 0;
+            sound.play();
+        });
+    </script>
+</body>
+</html>
